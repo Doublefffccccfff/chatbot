@@ -179,7 +179,8 @@ const ChatScreen = () => {
           <Button
             variant="outlined"
             startIcon={<HistoryIcon />}
-            onClick={() => navigate('/history')}
+            component="a"
+            href="/history"
             sx={{
               borderColor: '#9C27B0',
               color: '#9C27B0',
@@ -400,7 +401,7 @@ const ChatScreen = () => {
         <Box sx={{ display: 'flex', p: 2, borderTop: '1px solid #ccc' }}>
           <TextField
             fullWidth
-            placeholder="Message Bot AI…"
+            placeholder='Message Bot AI...'
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && handleSend()}
@@ -454,9 +455,8 @@ const ChatScreen = () => {
         <DialogTitle sx={{ bgcolor: '#F1E8FB', color: '#6A1B9A' }}>
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
             <img src={BotLogo} alt="Soul AI" style={{ width: 24, height: 24 }} />
-            <Typography component="span" fontWeight="bold">
-              Soul AI Feedback
-            </Typography>
+            <span style={{ fontWeight: 'bold' }}>Soul AI</span>
+
 
           </Box>
         </DialogTitle>
