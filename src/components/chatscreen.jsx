@@ -145,6 +145,7 @@ const ChatScreen = () => {
 
   return (
     <Box sx={{ display: 'flex', fontFamily: 'Ubuntu, sans-serif' }}>
+      
       {showDrawer && (
         <ChatDrawer
           chats={chats}
@@ -167,6 +168,17 @@ const ChatScreen = () => {
           backgroundColor: '#F5EBFF',
         }}
       >
+        {/* App Title */}
+        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 1, my: 2 }}>
+          
+          <Typography
+            variant="h4" // MUI provides good styling for h4
+            component="h1" // Semantic HTML tag
+            sx={{ fontWeight: 'bold', color: '#6A1B9A' }} // Example styling
+          >
+            Bot AI
+          </Typography>
+        </Box>
         {/* Rating filter bar */}
         <Box sx={{
           display: 'flex',
@@ -232,6 +244,7 @@ const ChatScreen = () => {
             px: 1,
           }}
         >
+          
           {[...filteredChat].reverse().map((item, index) => (
             <Box key={index} sx={{ mb: 2 }}>
               {/* User Message */}

@@ -40,6 +40,7 @@ const ChatDrawer = ({
         },
       }}
     >
+      
       <Box>
         <Button
           variant="contained"
@@ -58,7 +59,7 @@ const ChatDrawer = ({
           }}
         >
           <img src={BotLogo} alt="AI" style={{ width: 24, height: 24 }} />
-          <span style={{ fontSize: '1.1rem', fontWeight: '500' }}>New Chat</span>
+          <button>New Chat</button>
           <EditIcon style={{ fontSize: 20 }} />
         </Button>
 
@@ -77,8 +78,8 @@ const ChatDrawer = ({
           Back to Chat
         </Button>
 
-        <Typography variant="subtitle1" sx={{ mb: 1, fontWeight: 'bold' }}>
-          Previous Conversations
+        <Typography component='div' sx={{ mb: 1, fontWeight: 'bold' }}>
+          Past Conversations
         </Typography>
 
         <List>
