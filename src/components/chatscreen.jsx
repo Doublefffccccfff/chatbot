@@ -39,7 +39,7 @@ const ChatScreen = () => {
   const [feedbackText, setFeedbackText] = useState('');
   const [currentFeedbackIndex, setCurrentFeedbackIndex] = useState(null);
   const [ratingFilter, setRatingFilter] = useState(0); // 0 means show all
-  
+
   const location = useLocation();
   const navigate = useNavigate();
   const isHistoryRoute = location.pathname === '/history';
@@ -80,8 +80,9 @@ const ChatScreen = () => {
     const match = data.find(
       (item) => item.question.toLowerCase().trim() === userInput.toLowerCase().trim()
     );
-    return match ? match.response : "Sorry, Did not understand your query!";
+    return <p>{match ? match.response : "Sorry, Did not understand your query!"}</p>;
   };
+
 
   const handleSend = () => {
     if (!message.trim() || !activeChatTitle) return;
@@ -240,7 +241,7 @@ const ChatScreen = () => {
         <AppBar position="static" color="transparent" elevation={0} sx={{ mb: 2 }}>
           <Toolbar sx={{ justifyContent: 'space-between', px: 0 }}>
             {isHistoryRoute ? (
-              <Button 
+              <Button
                 startIcon={<ArrowBackIcon />}
                 onClick={() => navigate('/')}
                 sx={{ color: '#9C27B0' }}
@@ -250,18 +251,18 @@ const ChatScreen = () => {
             ) : (
               <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                 <img src={BotLogo} alt="Soul AI" style={{ width: 36, height: 36 }} />
-                <Typography variant="h6" sx={{ color: '#6A1B9A', fontWeight: 'bold' }}>
+                <Typography variant="span" sx={{ color: '#6A1B9A', fontWeight: 'bold' }}>
                   Soul AI
                 </Typography>
               </Box>
             )}
-            
+
             {!isHistoryRoute && (
-              <Button 
+              <Button
                 startIcon={<HistoryIcon />}
                 onClick={() => navigate('/history')}
-                sx={{ 
-                  color: '#9C27B0', 
+                sx={{
+                  color: '#9C27B0',
                   borderColor: '#9C27B0',
                   '&:hover': { borderColor: '#7B1FA2' }
                 }}
@@ -501,7 +502,7 @@ const ChatScreen = () => {
               )}
             </Box>
           } />
-          
+
           <Route path="/" element={
             <>
               <Box
@@ -655,7 +656,7 @@ const ChatScreen = () => {
               <Box sx={{ display: 'flex', p: 2, borderTop: '1px solid #ccc' }}>
                 <TextField
                   fullWidth
-                  placeholder="Message Soul AI…"
+                  placeholder="Message Bot AI..."
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   onKeyDown={(e) => e.key === 'Enter' && handleSend()}
