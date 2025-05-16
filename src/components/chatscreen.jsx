@@ -126,6 +126,10 @@ const ChatScreen = () => {
     setSaveTitle(activeChatTitle || '');
     setSaveDialogOpen(true);
   };
+  const handleSubmitMessage = (event) => {
+    event.preventDefault(); // Prevent default page reload
+    handleSend();         // Call your existing logic to send the message
+  };
 
   const handleSaveChat = () => {
     if (!saveTitle.trim()) return;
@@ -145,7 +149,7 @@ const ChatScreen = () => {
 
   return (
     <Box sx={{ display: 'flex', fontFamily: 'Ubuntu, sans-serif' }}>
-      
+
       {showDrawer && (
         <ChatDrawer
           chats={chats}
@@ -169,8 +173,8 @@ const ChatScreen = () => {
         }}
       >
         {/* App Title */}
-        <Box component="header"  sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 1, my: 2 }}>
-          
+        <Box component="header" sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 1, my: 2 }}>
+
           <Typography
             variant="h4" // MUI provides good styling for h4
             component="h1" // Semantic HTML tag
@@ -244,7 +248,7 @@ const ChatScreen = () => {
             px: 1,
           }}
         >
-          
+
           {[...filteredChat].reverse().map((item, index) => (
             <Box key={index} sx={{ mb: 2 }}>
               {/* User Message */}
@@ -411,7 +415,8 @@ const ChatScreen = () => {
           )}
         </Box>
 
-        <Box sx={{ display: 'flex', p: 2, borderTop: '1px solid #ccc' }}>
+        <Box component="form" // Make this Box behave as a form element
+          onSubmit={handleSubmitMessage} sx={{ display: 'flex', p: 2, borderTop: '1px solid #ccc' }}>
           <TextField
             fullWidth
             placeholder='Message Bot AI...'
@@ -423,7 +428,7 @@ const ChatScreen = () => {
           <Button
             type="submit"
             variant="contained"
-            onClick={handleSend}
+            // onClick={handleSend}
             sx={{ ml: 2, backgroundColor: '#9C27B0', ':hover': { backgroundColor: '#7B1FA2' } }}
           >
             Ask
