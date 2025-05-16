@@ -13,7 +13,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import HomeIcon from '@mui/icons-material/Home';
 import { useNavigate } from 'react-router-dom';
 import EditIcon from '@mui/icons-material/Edit';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 
 const drawerWidth = 200;
@@ -42,7 +42,7 @@ const ChatDrawer = ({
         },
       }}
     >
-
+      
       <Box>
 
 
@@ -61,9 +61,9 @@ const ChatDrawer = ({
           <img src={BotLogo} alt="AI" style={{ width: 30, height: 30 }} />
 
           <Button
-            component="a"
-            href="/"
+            component={Link}
             onClick={handleNewChat}
+            to="/"
             sx={{
               textTransform: 'none',
               color: 'white',
@@ -80,10 +80,9 @@ const ChatDrawer = ({
             New Chat
             <EditIcon style={{ fontSize: 20 }} />
           </Button>
-
         </Box>
 
-
+        
 
         <Button
           variant="outlined"
