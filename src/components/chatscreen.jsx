@@ -169,7 +169,7 @@ const ChatScreen = () => {
         }}
       >
         {/* App Title */}
-        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 1, my: 2 }}>
+        <Box component="header"  sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 1, my: 2 }}>
           
           <Typography
             variant="h4" // MUI provides good styling for h4

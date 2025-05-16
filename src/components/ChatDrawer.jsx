@@ -13,6 +13,8 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import HomeIcon from '@mui/icons-material/Home';
 import { useNavigate } from 'react-router-dom';
 import EditIcon from '@mui/icons-material/Edit';
+import {Link} from 'react-router-dom';
+
 
 const drawerWidth = 200;
 
@@ -42,26 +44,45 @@ const ChatDrawer = ({
     >
       
       <Box>
-        <Button
-          variant="contained"
-          onClick={handleNewChat}
+
+
+        <Box
           sx={{
             mb: 1,
             backgroundColor: '#9C27B0',
-            ':hover': { backgroundColor: '#7B1FA2' },
-            width: '100%',
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'space-between', // push text left, icon right
-            textTransform: 'none',
+            justifyContent: 'space-between',
             paddingY: 1.2,
-            px: 2, // horizontal padding
+            px: 3,
+            borderRadius: 1,
           }}
         >
-          <img src={BotLogo} alt="AI" style={{ width: 24, height: 24 }} />
-          <button>New Chat</button>
-          <EditIcon style={{ fontSize: 20 }} />
-        </Button>
+          <img src={BotLogo} alt="AI" style={{ width: 30, height: 30 }} />
+
+          <Button
+            component={Link}
+            onClick={handleNewChat}
+            to="/"
+            sx={{
+              textTransform: 'none',
+              color: 'white',
+              display: 'flex',
+              alignItems: 'center',
+              gap: 2,
+              minWidth: 0,
+              p: 0,
+              '&:hover': {
+                backgroundColor: 'transparent',
+              },
+            }}
+          >
+            New Chat
+            <EditIcon style={{ fontSize: 20 }} />
+          </Button>
+        </Box>
+
+        
 
         <Button
           variant="outlined"
